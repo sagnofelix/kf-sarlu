@@ -5,8 +5,10 @@ import "../styles/contact-style.css";
 const ContactPage: FunctionComponent = () => {
 
     return (
-        <div className="container" >
-            Add the contact page content here
+        <div className="container-fluid" >
+            Add the contact page content here. <br />
+
+            To be completed by Diallo.
         </div>
     );
 }
