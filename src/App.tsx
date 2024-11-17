@@ -1,25 +1,34 @@
-import React from 'react';
-import logo from './logo.svg';
+import { useEffect, useState } from 'react';
+import { FunctionComponent } from 'react';
+import { Route, BrowserRouter, Routes } from 'react-router-dom';
 import './App.css';
 
-function App() {
+import { useDispatch } from 'react-redux';
+
+import NavBar from './components/nav-bar';
+import NotFoundPage from './pages/not-found';
+import HomePage from './pages/home';
+import ContactPage from './pages/contact';
+
+const App: FunctionComponent = () => {
+  const dispatch = useDispatch();
+  const [loading, setLoading] = useState(true);
+  useEffect(() => {
+    setLoading(false);
+  }, [dispatch]);
+
+  if (loading) {
+    return <div>Loading...</div>;
+  }
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <BrowserRouter>
+      <NavBar />
+      <Routes>
+        <Route path="/" element={<HomePage />} />
+        <Route path="/contact" element={<ContactPage />} />
+        <Route path="*" element={<NotFoundPage />} />
+      </Routes>
+    </BrowserRouter>
   );
 }
 

@@ -1,0 +1,122 @@
+/* Social Links Bar Styling */
+.top-bar {
+    color: #f8f9fa;
+    font-size: 0.9rem;
+}
+
+.contact-line {
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.contact-link-item {
+    gap: .125rem;
+    padding: .25rem .5rem;
+    border-radius: 9999px;
+    color: #f8bd39 !important;
+    font-weight: 600;
+    font-size: .875rem;
+    transition: background .2s;
+    text-decoration: none !important;
+    padding-left: 15px;
+    padding-right: 15px;
+    padding-top: 8px;
+    padding-bottom: 8px;
+}
+
+.contact-link-item:hover {
+    background-color: rgb(63, 59, 52)
+}
+
+.link-me {
+    margin-right: 5px;
+}
+
+.contact-info {
+    font-weight: bold;
+}
+
+.top-bar .social-links {
+    font-size: 0.9rem;
+}
+
+.social-link {
+    color: #f8f9fa;
+    text-decoration: none;
+    margin: 0 5px;
+    transition: color 0.3s;
+}
+
+.social-link:hover {
+    color: #ffd700;
+    /* Gold color on hover */
+}
+
+/* Main Navbar Styling */
+.navbar {
+    /*box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);*/
+    z-index: 1030;
+    /* Ensures the navbar stays above other elements */
+    padding: 10px 20px;
+}
+
+.logo-text-size {
+    font-size: 1.2rem;
+}
+
+.logo-text {
+    color: #ffd700;
+    margin: 0;
+}
+
+.nav-link {
+    font-size: 1rem;
+    margin: 0 10px;
+    color: #f8f9fa !important;
+    transition: color 0.3s;
+}
+
+.nav-link:hover {
+    color: #ffd700 !important;
+    /* Gold color on hover */
+}
+
+.navbar-toggler {
+    border: none;
+    outline: none;
+}
+
+header {
+    position: sticky;
+    top: 0;
+    margin-bottom: 20px;
+    background: linear-gradient(180deg, #1d1d1d, #313131);
+
+}
+
+.top-element {
+    display: flex;
+    justify-content: center;
+    padding: .5rem 0;
+    font-weight: 600;
+    line-height: 1.25rem;
+    color: #242424;
+    background-color: #f8bd39;
+    width: 100%;
+    height: 36px;
+}
+
+/* Small devices (sm) - 576px and up */
+@media (min-width: 576px) {
+
+    /* Styles for small screens */
+    .logo-text-size {
+        font-size: 1.5rem;
+    }
+}
+
+/* Medium devices (md) - 768px and up */
+@media (min-width: 768px) {
+    .logo-text-size {
+        font-size: 2rem;
+    }
+}
