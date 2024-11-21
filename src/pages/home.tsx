@@ -9,34 +9,41 @@ import lingot from "../assets/img/lingot.webp";
 import profil from "../assets/img/profil.jpeg";
 
 const HomePage: FunctionComponent = () => {
-  const [showModal, setShowModal] = useState(false);
-  const [goldRate, setGoldRate] = useState<number | null>(null);
-  const [isLoading, setIsLoading] = useState(false);
-  const [error, setError] = useState(false);
-
-  useEffect(() => {
-    if (showModal) {
-      setIsLoading(true);
-      setError(false);
-      fetch("https://api.metals.live/v1/spot")
-        .then((response) => {
-          if (!response.ok) {
-            throw new Error(`HTTP error! status: ${response.status}`);
+    const [showModal, setShowModal] = useState(false);
+    const [goldRate, setGoldRate] = useState<number | null>(null);
+    const [isLoading, setIsLoading] = useState(false); // État pour gérer le chargement
+    const [error, setError] = useState<string | null>(null); // État pour gérer les erreurs
+  
+    useEffect(() => {
+      if (showModal) {
+        setIsLoading(true); // Démarre le chargement
+        setError(null); // Réinitialise les erreurs
+  
+        fetch("https://www.goldapi.io/api/XAU/USD", {
+          headers: {
+            "x-access-token": "goldapi-498iibysm3r40hqi-io"
           }
-          return response.json();
         })
-        .then((data) => {
-          const goldData = data.find((metal: any) => metal.symbol === "XAU");
-          setGoldRate(goldData?.price ?? null);
-        })
-        .catch(() => {
-          setError(true);
-        })
-        .finally(() => {
-          setIsLoading(false);
-        });
-    }
-  }, [showModal]);
+          .then((response) => {
+            if (!response.ok) {
+              throw new Error(`HTTP error! status: ${response.status}`);
+            }
+            return response.json();
+          })
+          .then((data) => {
+            console.log("Données de l'API GoldAPI :", data); // Log des données retournées par l'API
+            setGoldRate(data.price); // Extraction du taux de l'or
+            setIsLoading(false); // Arrête le chargement
+          })
+          .catch((error) => {
+            console.error("Error fetching gold rate:", error);
+            setError("Impossible de récupérer les données du taux de l'or.");
+            setGoldRate(null);
+            setIsLoading(false); // Arrête le chargement
+          });
+      }
+    }, [showModal]);
+  
 
   return (
     <div className="min-h-screen">
@@ -71,14 +78,16 @@ const HomePage: FunctionComponent = () => {
               <p>Chargement...</p>
             ) : error ? (
               <p>Impossible de récupérer le taux de l'or.</p>
+            ) : goldRate ? (
+              <p>Le taux actuel de l'or est de {goldRate.toFixed(2)} $/oz.</p>
             ) : (
-              <p>Le taux actuel de l'or est de {goldRate} $/oz.</p>
+              <p>Aucune donnée disponible.</p>
             )}
           </div>
         </div>
       )}
 
-      {/* Services */}
+      {/* Services Section */}
       <section className="services-section">
         <div className="container">
           <h2>Nos Services</h2>
