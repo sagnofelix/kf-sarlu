@@ -64,7 +64,7 @@ const ContactPage: React.FC = () => {
             }}
           >
             <div className="card-body text-center">
-              <h1 className="card-title">KANTE & FRERES - SARLU</h1>
+              <h1 className="card-title">MISE EN CONTACT</h1>
               <p className="card-text">
                 <strong>Au capital de :</strong> 10 000 000 GNF <br />
                 <strong>Siège social :</strong> Madina Marche, Commune de Matam <br />
