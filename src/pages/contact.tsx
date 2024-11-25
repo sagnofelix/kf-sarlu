@@ -1,120 +1,160 @@
-import React, { FunctionComponent } from "react";
-import { Helmet } from "react-helmet";
+import React, { useState } from "react";
+import emailjs from "emailjs-com";
 
-const ContactPage: FunctionComponent = () => {
+const ContactPage: React.FC = () => {
+  // États pour les champs du formulaire
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    message: "",
+  });
+
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    const { name, value } = e.target;
+    setFormData({ ...formData, [name]: value });
+  };
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+
+    // Envoi de l'email avec EmailJS
+    emailjs
+      .send(
+        "service_id", // Remplacez par votre Service ID
+        "template_id", // Remplacez par votre Template ID
+        {
+          name: formData.name,
+          email: formData.email,
+          message: formData.message,
+        },
+        "user_id" // Remplacez par votre User ID EmailJS
+      )
+      .then(
+        () => {
+          alert("Votre message a été envoyé avec succès !");
+          setFormData({ name: "", email: "", message: "" });
+        },
+        (error: any) => {
+          alert("Une erreur s'est produite lors de l'envoi du message.");
+          console.error(error);
+        }
+      );
+  };
+
   return (
-    <>
-      {/* Inclure le lien CDN de Bulma et Font Awesome */}
-      <Helmet>
-        <link
-          rel="stylesheet"
-          href="https://cdn.jsdelivr.net/npm/bulma@1.0.2/css/bulma.min.css"
-        />
-        <link
-          rel="stylesheet"
-          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
-        />
-      </Helmet>
-
-      <div className="container mt-5">
-        <div className="box has-text-centered">
-          <h1 className="title">KANTE & FRERES - SARLU</h1>
-          <p className="subtitle">
-            Société à Responsabilité Limitée Unipersonnelle
-          </p>
-          <p className="content">
-            <strong>Au capital de :</strong> 10 000 000 GNF <br />
-            <strong>Siège social :</strong> Madina Marche, Commune de Matam <br />
-            <strong>Email :</strong>{" "}
-            <a
-              href="mailto:etskanteetfreres@gmail.com"
-              className="has-text-link"
-            >
-              etskanteetfreres@gmail.com
-            </a>{" "}
-            <br />
-            <strong>Contact :</strong>{" "}
-            <a href="tel:+224612157746" className="has-text-link">
-              +224 612 15 77 46
-            </a>
-          </p>
-          <p className="has-text-weight-bold">République de Guinée</p>
-        </div>
-
-        <div className="box mt-5">
-          <h2 className="title is-4 has-text-centered">Contactez-nous</h2>
-          <form>
-            {/* Champ Nom */}
-            <div className="field has-text-centered">
-              <label className="label" htmlFor="name">
-                Nom
-              </label>
-              <div className="control has-icons-left">
-                <input
-                  className="input is-fullwidth"
-                  type="text"
-                  id="name"
-                  name="name"
-                  placeholder="Votre nom"
-                  required
-                />
-                <span className="icon is-small is-left">
-                  <i className="fas fa-user"></i>
-                </span>
-              </div>
+    <div className="container" style={{ marginTop: "0px" }}>
+      {/* Bloc principal noir */}
+      <div
+        className="card"
+        style={{
+          backgroundColor: "#000",
+          color: "#fff",
+          border: "none",
+          borderRadius: "8px",
+          overflow: "hidden",
+        }}
+      >
+        <div className="row no-gutters">
+          {/* Bloc Informations */}
+          <div
+            className="col-md-6 d-flex align-items-center"
+            style={{
+              borderRight: "1px solid #444",
+              padding: "20px",
+            }}
+          >
+            <div className="card-body text-center">
+              <h1 className="card-title">MISE EN CONTACT</h1>
+              <p className="card-text">
+                <strong>Au capital de :</strong> 10 000 000 GNF <br />
+                <strong>Siège social :</strong> Madina Marche, Commune de Matam <br />
+                <strong>Email :</strong>{" "}
+                <a
+                  href="mailto:etskanteetfreres@gmail.com"
+                  className="text-warning"
+                >
+                  etskanteetfreres@gmail.com
+                </a>{" "}
+                <br />
+                <strong>Contact :</strong>{" "}
+                <a href="tel:+224612157746" className="text-warning">
+                  +224 612 15 77 46
+                </a>
+              </p>
+              <p className="has-text-weight-bold">République de Guinée</p>
             </div>
+          </div>
 
-            {/* Champ Email */}
-            <div className="field has-text-centered">
-              <label className="label" htmlFor="email">
-                Email
-              </label>
-              <div className="control has-icons-left">
-                <input
-                  className="input is-fullwidth"
-                  type="email"
-                  id="email"
-                  name="email"
-                  placeholder="Votre email"
-                  required
-                />
-                <span className="icon is-small is-left">
-                  <i className="fas fa-envelope"></i>
-                </span>
-              </div>
-            </div>
+          {/* Bloc Formulaire */}
+          <div
+            className="col-md-6 d-flex align-items-center"
+            style={{
+              padding: "20px",
+            }}
+          >
+            <div className="card-body">
+              <h2 className="card-title text-center mb-4">
+                Contactez-nous
+              </h2>
+              <form onSubmit={handleSubmit}>
+                {/* Champ Nom */}
+                <div className="form-group">
+                  <label htmlFor="name">Nom</label>
+                  <input
+                    type="text"
+                    className="form-control"
+                    id="name"
+                    name="name"
+                    placeholder="Votre nom"
+                    value={formData.name}
+                    onChange={handleInputChange}
+                    required
+                  />
+                </div>
 
-            {/* Champ Message */}
-            <div className="field has-text-centered">
-              <label className="label" htmlFor="message">
-                Message
-              </label>
-              <div className="control">
-                <textarea
-                  className="textarea is-fullwidth"
-                  id="message"
-                  name="message"
-                  rows={5}
-                  placeholder="Votre message"
-                  required
-                ></textarea>
-              </div>
-            </div>
+                {/* Champ Email */}
+                <div className="form-group">
+                  <label htmlFor="email">Email</label>
+                  <input
+                    type="email"
+                    className="form-control"
+                    id="email"
+                    name="email"
+                    placeholder="Votre email"
+                    value={formData.email}
+                    onChange={handleInputChange}
+                    required
+                  />
+                </div>
 
-            {/* Bouton Envoyer */}
-            <div className="field is-grouped is-justify-content-center">
-              <div className="control">
-                <button type="submit" className="button is-link">
-                  Envoyer
-                </button>
-              </div>
+                {/* Champ Message */}
+                <div className="form-group">
+                  <label htmlFor="message">Message</label>
+                  <textarea
+                    className="form-control"
+                    id="message"
+                    name="message"
+                    rows={2}
+                    placeholder="Votre message"
+                    value={formData.message}
+                    onChange={handleInputChange}
+                    required
+                  ></textarea>
+                </div>
+
+                {/* Bouton Envoyer */}
+                <div className="text-center">
+                  <button type="submit" className="btn btn-warning">
+                    Envoyer
+                  </button>
+                </div>
+              </form>
             </div>
-          </form>
+          </div>
         </div>
       </div>
-    </>
+    </div>
   );
 };
 
 export default ContactPage;
-
