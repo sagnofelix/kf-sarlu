@@ -148,10 +148,31 @@ body, html {
 }
 
 /* Process section */
-.process-section {
+.process-section{
     background-color: #F9FAFB;
     padding: 3rem 0;
 }
+
+span h2{
+    font-size: 2.25rem;
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 2rem;
+}
+#biography{
+    background-color: rgb(209, 177, 116);
+    padding: 0;
+}
+
+#biog{
+    display: flex;
+    justify-content: space-between;
+}
+
+.biography{
+    padding: 20px;
+}
+
 
 .process-section h2 {
     font-size: 2.25rem;
@@ -217,6 +238,7 @@ body, html {
 #profil {
     height: 100%;
     left: 5px;
+    z-index: -1;
 }
 
 .type-item img {
