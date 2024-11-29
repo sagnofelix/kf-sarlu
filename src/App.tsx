@@ -9,6 +9,8 @@ import NavBar from './components/nav-bar';
 import NotFoundPage from './pages/not-found';
 import HomePage from './pages/home';
 import ContactPage from './pages/contact';
+import CollaborationPage from './pages/collaboration';
+
 
 const App: FunctionComponent = () => {
   const dispatch = useDispatch();
@@ -26,6 +28,7 @@ const App: FunctionComponent = () => {
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/contact" element={<ContactPage />} />
+        <Route path="/collaboration" element={<CollaborationPage/>} />
         <Route path="*" element={<NotFoundPage />} />
       </Routes>
     </BrowserRouter>

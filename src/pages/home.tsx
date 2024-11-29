@@ -169,11 +169,64 @@ const HomePage: FunctionComponent = () => {
               <h3>Lingots et Lingotins</h3>
               <p>Tous poids acceptés avec certificat</p>
             </div>
-            <div className="type-item">
-              <img id="profil" src={profil} alt="Profil" />
-              <h3>Profil</h3>
-              <p>Tous poids acceptés avec certificat</p>
-            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* profil section */}
+      <span><h2>À propos de Moi </h2></span>
+      {/* <div className="container" id="profil" >
+      <div className="row">
+      <div className="col-md-6 col-sm-12">
+          <div className="biography">
+            <h1>Mr Mohamed Fanta Kanté</h1>
+            <p>Bonjour et bienvenue sur mon site de portfolio ! <br />
+            Je suis un entrepreneur passionné avec une expertise pointue dans l'achat et la vente de l'or. <br /> 
+            Fort de plusieurs années d'expérience dans ce domaine, j'ai développé une compréhension approfondie des marchés financiers et des métaux précieux.
+            </p>
+            <h3><b>Mes Compétences</b></h3>
+              <ul>
+                <li><b>Achat d'Or</b> : Expertise dans l'identification, l'évaluation et l'acquisition de l'or sous diverses formes (bijoux, lingots, pièces).</li>
+                <li><b>Vente d'Or</b> : Stratégies de vente efficaces pour maximiser les profits tout en garantissant la satisfaction du client.</li>
+                <li><b>Analyse de Marché</b> : Capacité à analyser les tendances du marché et à prévoir les fluctuations des prix des métaux précieux.</li>
+                <li><b>Négociation</b> : Talents en négociation pour assurer des transactions avantageuses et sécurisées pour toutes les parties impliquées.</li>
+              </ul>
+              <h3><b>Mes Objectifs</b></h3>
+              <p>
+              Mon objectif est de fournir des services de qualité supérieure à mes clients et de devenir une référence dans le secteur de l'or. Que vous cherchiez à acheter ou vendre de l'or, je suis ici pour vous offrir des conseils d'expert et des solutions adaptées à vos besoins.
+              </p>
+          </div>
+          </div>
+          <div className="col-md-6 col-sm-12">
+          <img src={profil} id="profil" alt="profil"/>
+
+          </div>
+        </div>
+      </div> */}
+
+      <section className="process-section" id="biography">
+ 
+        <div className="container" id="biog">
+          <div className="biography">
+            <h1>Mr Mohamed Fanta Kanté</h1>
+            <p>Bonjour et bienvenue sur mon site de portfolio ! <br />
+            Je suis un entrepreneur passionné avec une expertise pointue dans l'achat et la vente de l'or. <br /> 
+            Fort de plusieurs années d'expérience dans ce domaine, j'ai développé une compréhension approfondie des marchés financiers et des métaux précieux.
+            </p>
+            <h3><b>Mes Compétences</b></h3>
+              <ul>
+                <li><b>Achat d'Or</b> : Expertise dans l'identification, l'évaluation et l'acquisition de l'or sous diverses formes (bijoux, lingots, pièces).</li>
+                <li><b>Vente d'Or</b> : Stratégies de vente efficaces pour maximiser les profits tout en garantissant la satisfaction du client.</li>
+                <li><b>Analyse de Marché</b> : Capacité à analyser les tendances du marché et à prévoir les fluctuations des prix des métaux précieux.</li>
+                <li><b>Négociation</b> : Talents en négociation pour assurer des transactions avantageuses et sécurisées pour toutes les parties impliquées.</li>
+              </ul>
+              <h3><b>Mes Objectifs</b></h3>
+              <p>
+              Mon objectif est de fournir des services de qualité supérieure à mes clients et de devenir une référence dans le secteur de l'or. Que vous cherchiez à acheter ou vendre de l'or, je suis ici pour vous offrir des conseils d'expert et des solutions adaptées à vos besoins.
+              </p>
+          </div>
+          <div>
+            <img src={profil} id="profil" alt="profil"/>
           </div>
         </div>
       </section>
@@ -227,3 +280,5 @@ const HomePage: FunctionComponent = () => {
 };
 
 export default HomePage;
+
+// background-color: rgb(209, 177, 116);
