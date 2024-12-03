@@ -11,3 +11,16 @@ In the project directory, you can run:
 Runs the app in the development mode.\
 Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
+
+### Devops operations
+I) Build stage
+
+1) Build the image
+    ### Build for local use
+    docker build -t kf-sarlu:latest .
+
+    ### Build for hub use
+    docker build -t jeanfelixsagno/kf-sarlu:latest .
+    docker push jeanfelixsagno/kf-sarlu:latest
+
+
