@@ -1,125 +1,27 @@
-  
-  /* Conteneur principal */
-  .contact-container {
-    display: flex; /* Aligne les enfants en ligne */
-    justify-content: space-between; /* Espace entre les deux blocs */
-    align-items: flex-start; /* Aligne les blocs en haut */
-    background-color: rgb(63, 59, 52);
-    padding: 20px;
-    border: 1px solid #ddd;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    max-width: 900px;
-    width: 90%;
-    gap: 20px; /* Espace entre les blocs */
-    margin: auto;
-    color: #f8bd39 !important;
+.contact-block {
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  color: "#fff";
+  border: "none";
+  border-radius: "8px";
+  overflow: hidden;
+}
+
+.card-text {
+  margin-bottom: 15px;
+}
+
+.left-contact-block {
+  border-right: none;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+
+/* Small devices (sm) - 576px and up */
+@media (min-width: 576px) {}
+
+/* Medium devices (md) - 768px and up */
+@media (min-width: 768px) {
+  .left-contact-block {
+    border-right: 1px solid rgba(0, 0, 0, 0.1) !important
   }
-  
-  /* Bloc 1: Informations de l'entreprise */
-  .company-info {
-    flex: 1; /* Le premier bloc occupe autant d'espace que nécessaire */
-    text-align: left;
-  }
-  
-  .company-info h1 {
-    font-size: 1.8rem;
-    font-weight: bold;
-    margin-bottom: 10px;
-  }
-  
-  .subtitle {
-    font-size: 1rem;
-    margin-bottom: 15px;
-    font-style: italic;
-  }
-  
-  .details {
-    font-size: 0.95rem;
-    line-height: 1.6;
-  }
-  
-  .details a {
-    color: #007BFF;
-    text-decoration: none;
-  }
-  
-  .details a:hover {
-    text-decoration: underline;
-  }
-  
-  .footer {
-    font-size: 1rem;
-    font-weight: bold;
-    margin-top: 15px;
-  }
-  
-  /* Bloc 2: Formulaire de contact */
-  .contact-form {
-    flex: 1; /* Le deuxième bloc occupe autant d'espace que nécessaire */
-    text-align: left;
-  }
-  
-  .contact-form h2 {
-    font-size: 1.5rem;
-    margin-bottom: 15px;
-  }
-  
-  .form-group {
-    margin-bottom: 15px;
-  }
-  
-  .form-group label {
-    display: block;
-    font-weight: bold;
-    margin-bottom: 5px;
-  }
-  
-  .form-group input,
-  .form-group textarea {
-    width: 100%;
-    padding: 10px;
-    border: 1px solid #ddd;
-    border-radius: 5px;
-    font-size: 1rem;
-  }
-  
-  .form-group textarea {
-    resize: none;
-  }
-  
-  .submit-button {
-    background-color: #007BFF;
-    color: white;
-    padding: 10px 15px;
-    border: none;
-    border-radius: 5px;
-    font-size: 1rem;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-  }
-  
-  .submit-button:hover {
-    background-color: #0056b3;
-  }
-  
-  /* Responsivité */
-  @media (max-width: 768px) {
-    .contact-container {
-      flex-direction: column; /* Les blocs passent l'un en dessous de l'autre */
-      align-items: center;
-      text-align: center;
-    }
-  
-    .company-info,
-    .contact-form {
-      flex: none;
-      width: 100%;
-    }
-  
-    .company-info {
-      border-right: none;
-      margin-bottom: 20px;
-    }
-  }
-  
+}

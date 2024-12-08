@@ -8,6 +8,10 @@
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
+.nav-block {
+    z-index: 10000000000;
+}
+
 .contact-link-item {
     gap: .125rem;
     padding: .25rem .5rem;
@@ -60,26 +64,26 @@
 }
 
 .logo-text-size {
-    font-size: 1.2rem;
+    font-size: .75rem !important;
 }
 
 .logo-text {
     color: #ffd700;
     margin: 0;
     font-size: 80px;
-            font-weight: bold;
-            text-align: center;
-            letter-spacing: 10px;
-            text-transform: uppercase;
-            display: inline-block;
-            position: relative;
-            animation: circuitAnimation 3s infinite linear;
-            text-shadow:
-                0px 0px 10px rgba(0, 255, 0, 0.5),
-                0px 0px 20px rgba(0, 255, 0, 0.7),
-                0px 0px 30px rgba(0, 255, 0, 1),
-                0px 0px 40px rgba(0, 255, 0, 0.7),
-                0px 0px 50px rgba(0, 255, 0, 0.5);
+    font-weight: bold;
+    text-align: center;
+    letter-spacing: 10px;
+    text-transform: uppercase;
+    display: inline-block;
+    position: relative;
+    animation: circuitAnimation 3s infinite linear;
+    text-shadow:
+        0px 0px 10px rgba(0, 255, 0, 0.5),
+        0px 0px 20px rgba(0, 255, 0, 0.7),
+        0px 0px 30px rgba(0, 255, 0, 1),
+        0px 0px 40px rgba(0, 255, 0, 0.7),
+        0px 0px 50px rgba(0, 255, 0, 0.5);
 }
 
 .nav-link {
@@ -123,13 +127,13 @@ header {
 
     /* Styles for small screens */
     .logo-text-size {
-        font-size: 1.5rem;
+        font-size: 1.5rem !important;
     }
 }
 
 /* Medium devices (md) - 768px and up */
 @media (min-width: 768px) {
     .logo-text-size {
-        font-size: 2rem;
+        font-size: 2rem !important;
     }
 }

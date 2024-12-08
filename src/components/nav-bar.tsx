@@ -5,10 +5,10 @@ import "../styles/nav-style.css";
 const NavBar: React.FC = () => {
     return (
         <>
-            <header className="">
+            <header className="nav-block">
                 {/* Social Links Bar */}
                 <div className="py-0">
-                    <div className=" contact-line py-3">
+                    <div className="contact-line py-3">
                         <div className="container top-bar d-flex justify-content-end align-items-center">
 
                             <div className="social-links">
