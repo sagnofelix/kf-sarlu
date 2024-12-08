@@ -17,10 +17,10 @@ I) Build stage
 
 1) Build the image
     ### Build for local use
-    docker build -t kf-sarlu:latest .
+    docker build -t kf-sarlu:1.0.0 .
 
     ### Build for hub use
-    docker build -t jeanfelixsagno/kf-sarlu:latest .
-    docker push jeanfelixsagno/kf-sarlu:latest
+    docker build -t jeanfelixsagno/kf-sarlu:1.0.0 .
+    docker push jeanfelixsagno/kf-sarlu:1.0.0
 
 
