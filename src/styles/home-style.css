@@ -363,6 +363,11 @@ footer {
     cursor: pointer;
 }
 
+.profilImage {
+    width: 100% !important;
+    height: auto;
+}
+
 /* Mobile styles */
 @media (max-width: 768px) {
 
