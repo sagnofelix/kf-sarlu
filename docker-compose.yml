@@ -7,11 +7,11 @@ services:
     #   dockerfile: Dockerfile
 
     # use hub image for (production)
-    image: jeanfelixsagno/kf-sarlu:latest
+    image: jeanfelixsagno/kf-sarlu:1.0.0
 
     container_name: sarlu
     volumes:
-      - sarlu_data:/app:ro
+      - sarlu_data:/app
     restart: unless-stopped
 
   nginx:

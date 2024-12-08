@@ -82,7 +82,7 @@ const ContactPage: React.FC = () => {
                 <strong>Au capital de :</strong> 10 000 000 GNF
               </p>
               <p className="card-text">
-                <strong>Siège social :</strong> Madina Marche, Commune de Matam
+                <strong>Siège social :</strong> Madina Marché, Commune de Matam
               </p>
               <p className="has-text-weight-bold">République de Guinée</p>
             </div>

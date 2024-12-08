@@ -17,3 +17,10 @@ FROM alpine:3.18
 WORKDIR /app
 
 COPY --from=build /app/build /app/
+
+
+# Add a startup script
+COPY config/entrypoint.sh /entrypoint.sh
+RUN chmod +x /entrypoint.sh
+
+ENTRYPOINT ["/entrypoint.sh"]
