@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import emailjs from "emailjs-com";
+import "../styles/contact-style.css";
 
 const ContactPage: React.FC = () => {
   // États pour les champs du formulaire
@@ -42,32 +43,24 @@ const ContactPage: React.FC = () => {
   };
 
   return (
-    <div className="container" style={{ marginTop: "0px" }}>
+    <div className="container mb-5" style={{ marginTop: "70px" }}>
       {/* Bloc principal noir */}
       <div
-        className="card"
-        style={{
-          backgroundColor: "#000",
-          color: "#fff",
-          border: "none",
-          borderRadius: "8px",
-          overflow: "hidden",
-        }}
+        className="card contact-block"
       >
         <div className="row no-gutters">
           {/* Bloc Informations */}
           <div
-            className="col-md-6 d-flex align-items-center"
+            className="col-md-6 left-contact-block"
             style={{
-              borderRight: "1px solid #444",
+              // borderRight: "1px solid #444",
               padding: "20px",
             }}
           >
-            <div className="card-body text-center">
-              <h1 className="card-title">MISE EN CONTACT</h1>
+            <div className="card-body">
+              <h3 className="card-title text-center  mb-3">MISE EN CONTACT</h3>
+              <hr className="mb-4" />
               <p className="card-text">
-                <strong>Au capital de :</strong> 10 000 000 GNF <br />
-                <strong>Siège social :</strong> Madina Marche, Commune de Matam <br />
                 <strong>Email :</strong>{" "}
                 <a
                   href="mailto:etskanteetfreres@gmail.com"
@@ -75,11 +68,21 @@ const ContactPage: React.FC = () => {
                 >
                   etskanteetfreres@gmail.com
                 </a>{" "}
-                <br />
+              </p>
+              <p className="card-text"></p>
+              <p className="card-text"></p>
+              <p className="card-text">
                 <strong>Contact :</strong>{" "}
                 <a href="tel:+224612157746" className="text-warning">
                   +224 612 15 77 46
                 </a>
+              </p>
+              <hr className="mb-4 mt-4" />
+              <p className="card-text">
+                <strong>Au capital de :</strong> 10 000 000 GNF
+              </p>
+              <p className="card-text">
+                <strong>Siège social :</strong> Madina Marche, Commune de Matam
               </p>
               <p className="has-text-weight-bold">République de Guinée</p>
             </div>
@@ -87,15 +90,16 @@ const ContactPage: React.FC = () => {
 
           {/* Bloc Formulaire */}
           <div
-            className="col-md-6 d-flex align-items-center"
+            className="col-md-6"
             style={{
               padding: "20px",
             }}
           >
             <div className="card-body">
-              <h2 className="card-title text-center mb-4">
-                Contactez-nous
-              </h2>
+              <h3 className="card-title text-center mb-3">
+                CONTACTEZ-NOUS
+              </h3>
+              <hr />
               <form onSubmit={handleSubmit}>
                 {/* Champ Nom */}
                 <div className="form-group">
@@ -143,8 +147,8 @@ const ContactPage: React.FC = () => {
                 </div>
 
                 {/* Bouton Envoyer */}
-                <div className="text-center">
-                  <button type="submit" className="btn btn-warning">
+                <div className="">
+                  <button type="submit" className="btn btn-warning px-5 py-2">
                     Envoyer
                   </button>
                 </div>

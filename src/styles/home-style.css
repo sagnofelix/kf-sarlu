@@ -1,4 +1,5 @@
-body, html {
+body,
+html {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
@@ -16,25 +17,25 @@ body, html {
     align-items: center;
     justify-content: center;
     z-index: 1000;
-  }
-  
-  .gold-rate-content {
+}
+
+.gold-rate-content {
     background: #fff;
     padding: 20px;
     border-radius: 8px;
     text-align: center;
     max-width: 500px;
     width: 90%;
-  }
-  
-  .gold-rate-content .close {
+}
+
+.gold-rate-content .close {
     position: absolute;
     top: 10px;
     right: 15px;
     font-size: 24px;
     cursor: pointer;
-  }
-  
+}
+
 
 .container {
     width: 100%;
@@ -51,7 +52,8 @@ body, html {
 .hero-section {
     text-align: left;
     padding: 3rem 0;
-    background-color: #111827; /* Dark blue */
+    background-color: #111827;
+    /* Dark blue */
     color: white;
     margin: 0;
 }
@@ -67,11 +69,13 @@ body, html {
 }
 
 .hero-section .cta-button {
-    background-color: #FCD34D; /* Yellow */
+    background-color: #FCD34D;
+    /* Yellow */
     color: black;
     font-weight: bold;
     padding: 0.75rem 2rem;
-    border-radius: 9999px; /* Fully rounded */
+    border-radius: 9999px;
+    /* Fully rounded */
     display: flex;
     align-items: center;
 }
@@ -137,7 +141,8 @@ body, html {
 .service-item .icon {
     width: 3rem;
     height: 3rem;
-    color: #FCD34D; /* Yellow */
+    color: #FCD34D;
+    /* Yellow */
     margin-bottom: 1rem;
 }
 
@@ -148,28 +153,29 @@ body, html {
 }
 
 /* Process section */
-.process-section{
+.process-section {
     background-color: #F9FAFB;
     padding: 3rem 0;
 }
 
-span h2{
+span h2 {
     font-size: 2.25rem;
     font-weight: bold;
     text-align: center;
     margin-bottom: 2rem;
 }
-#biography{
+
+#biography {
     background-color: rgb(209, 177, 116);
     padding: 0;
 }
 
-#biog{
+#biog {
     display: flex;
     justify-content: space-between;
 }
 
-.biography{
+.biography {
     padding: 20px;
 }
 
@@ -195,7 +201,8 @@ span h2{
     width: 3rem;
     height: 3rem;
     border-radius: 9999px;
-    background-color: #FCD34D; /* Yellow */
+    background-color: #FCD34D;
+    /* Yellow */
     display: flex;
     align-items: center;
     justify-content: center;
@@ -257,7 +264,8 @@ span h2{
 
 /* Contact section */
 .contact-section {
-    background-color: #1E3A8A; /* Deep blue */
+    background-color: #1E3A8A;
+    /* Deep blue */
     color: white;
     padding: 3rem 0;
 }
@@ -283,6 +291,7 @@ span h2{
 .contact-item {
     display: flex;
     align-items: center;
+    margin-bottom: 10px !important;
 }
 
 .contact-item .icon {
@@ -305,7 +314,8 @@ span h2{
 }
 
 .contact-form button {
-    background-color: #FCD34D; /* Yellow */
+    background-color: #FCD34D;
+    /* Yellow */
     color: black;
     font-weight: bold;
     padding: 0.75rem 2rem;
@@ -315,7 +325,8 @@ span h2{
 
 /* Footer section */
 footer {
-    background-color: #111827; /* Dark gray */
+    background-color: #111827;
+    /* Dark gray */
     color: white;
     padding: 2rem 0;
     text-align: center;
@@ -340,12 +351,30 @@ footer {
 }
 
 .footer-links a:hover {
-    color: #FCD34D; /* Yellow */
+    color: #FCD34D;
+    /* Yellow */
+}
+
+.closeRating {
+    background-color: #495368;
+    color: white;
+    padding: 5px 10px;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.profilImage {
+    width: 100% !important;
+    height: auto;
 }
 
 /* Mobile styles */
 @media (max-width: 768px) {
-    .services-grid, .process-grid, .types-grid, .contact-grid {
+
+    .services-grid,
+    .process-grid,
+    .types-grid,
+    .contact-grid {
         grid-template-columns: 1fr;
     }
 
@@ -361,11 +390,17 @@ footer {
         padding: 0.5rem 1.5rem;
     }
 
-    .services-section, .process-section, .types-section, .contact-section {
+    .services-section,
+    .process-section,
+    .types-section,
+    .contact-section {
         padding: 2rem 0;
     }
 
-    .services-section h2, .process-section h2, .types-section h2, .contact-section h2 {
+    .services-section h2,
+    .process-section h2,
+    .types-section h2,
+    .contact-section h2 {
         margin-bottom: 2rem;
     }
 }

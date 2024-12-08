@@ -12,9 +12,9 @@ const RatingStars: React.FC<RatingStarsProps> = ({ rating }) => {
   return (
     <div className="flex">
       {[1, 2, 3, 4, 5].map((star) => (
-        <Star 
-          key={star} 
-          className={`w-5 h-5 ${star <= rating ? 'text-yellow-500' : 'text-gray-300'}`} 
+        <Star
+          key={star}
+          className={`w-5 h-5 ${star <= rating ? 'text-yellow-500' : 'text-gray-300'}`}
           fill={star <= rating ? 'currentColor' : 'none'}
         />
       ))}
@@ -96,18 +96,18 @@ const CollaborationPage: React.FC = () => {
   };
 
   const handleLikeDislike = (reviewId: number, type: 'likes' | 'dislikes') => {
-    setReviews(reviews.map(review => 
-      review.id === reviewId 
-        ? { 
-            ...review, 
-            [type]: review[type] + 1 
-          } 
+    setReviews(reviews.map(review =>
+      review.id === reviewId
+        ? {
+          ...review,
+          [type]: review[type] + 1
+        }
         : review
     ));
   };
 
   return (
-    <div className="max-w-2xl mx-auto p-4 bg-white rounded-lg shadow-md">
+    <div className="max-w-2xl mx-auto p-4 bg-white rounded-lg shadow-md mt-2 mb-2">
       <h2 className="text-2xl font-bold mb-4 text-center">
         Avis sur nos Transactions d'Or
       </h2>
@@ -116,16 +116,16 @@ const CollaborationPage: React.FC = () => {
       <form onSubmit={handleReviewSubmit} className="mb-6 p-4 border rounded-lg">
         <h3 className="text-xl font-semibold mb-4">Déposez votre avis</h3>
         <div className="grid grid-cols-2 gap-4">
-          <input 
-            type="text" 
-            placeholder="Votre nom" 
+          <input
+            type="text"
+            placeholder="Votre nom"
             value={newReview.author}
-            onChange={(e) => setNewReview({...newReview, author: e.target.value})}
+            onChange={(e) => setNewReview({ ...newReview, author: e.target.value })}
             className="border p-2 rounded"
           />
-          <select 
+          <select
             value={newReview.transaction}
-            onChange={(e) => setNewReview({...newReview, transaction: e.target.value})}
+            onChange={(e) => setNewReview({ ...newReview, transaction: e.target.value })}
             className="border p-2 rounded"
           >
             <option value="">Type de transaction</option>
@@ -136,10 +136,10 @@ const CollaborationPage: React.FC = () => {
           </select>
         </div>
         <div className="mt-4">
-          <textarea 
-            placeholder="Votre avis..." 
+          <textarea
+            placeholder="Votre avis..."
             value={newReview.comment}
-            onChange={(e) => setNewReview({...newReview, comment: e.target.value})}
+            onChange={(e) => setNewReview({ ...newReview, comment: e.target.value })}
             className="w-full border p-2 rounded h-24"
           ></textarea>
         </div>
@@ -147,16 +147,16 @@ const CollaborationPage: React.FC = () => {
           <div className="flex items-center space-x-2">
             <span>Note :</span>
             {[1, 2, 3, 4, 5].map((star) => (
-              <Star 
-                key={star} 
+              <Star
+                key={star}
                 className={`w-6 h-6 cursor-pointer ${star <= newReview.rating ? 'text-yellow-500' : 'text-gray-300'}`}
                 fill={star <= newReview.rating ? 'currentColor' : 'none'}
-                onClick={() => setNewReview({...newReview, rating: star})}
+                onClick={() => setNewReview({ ...newReview, rating: star })}
               />
             ))}
           </div>
-          <button 
-            type="submit" 
+          <button
+            type="submit"
             className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600"
           >
             Soumettre
@@ -180,14 +180,14 @@ const CollaborationPage: React.FC = () => {
             </p>
             <p className="mb-2">{review.comment}</p>
             <div className="flex items-center space-x-4">
-              <button 
+              <button
                 onClick={() => handleLikeDislike(review.id, 'likes')}
                 className="flex items-center space-x-1"
               >
                 <ThumbsUp className="w-4 h-4 text-green-500" />
                 <span>{review.likes}</span>
               </button>
-              <button 
+              <button
                 onClick={() => handleLikeDislike(review.id, 'dislikes')}
                 className="flex items-center space-x-1"
               >

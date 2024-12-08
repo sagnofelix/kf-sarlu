@@ -9,41 +9,40 @@ import lingot from "../assets/img/lingot.webp";
 import profil from "../assets/img/profil.jpeg";
 
 const HomePage: FunctionComponent = () => {
-    const [showModal, setShowModal] = useState(false);
-    const [goldRate, setGoldRate] = useState<number | null>(null);
-    const [isLoading, setIsLoading] = useState(false); // État pour gérer le chargement
-    const [error, setError] = useState<string | null>(null); // État pour gérer les erreurs
-  
-    useEffect(() => {
-      if (showModal) {
-        setIsLoading(true); // Démarre le chargement
-        setError(null); // Réinitialise les erreurs
-  
-        fetch("https://www.goldapi.io/api/XAU/USD", {
-          headers: {
-            "x-access-token": "goldapi-498iibysm3r40hqi-io"
+  const [showModal, setShowModal] = useState(false);
+  const [goldRate, setGoldRate] = useState<number | null>(null);
+  const [isLoading, setIsLoading] = useState(false); // État pour gérer le chargement
+  const [error, setError] = useState<string | null>(null); // État pour gérer les erreurs
+
+  useEffect(() => {
+    if (showModal) {
+      setIsLoading(true); // Démarre le chargement
+      setError(null); // Réinitialise les erreurs
+
+      fetch("https://www.goldapi.io/api/XAU/USD", {
+        headers: {
+          "x-access-token": "goldapi-498iibysm3r40hqi-io"
+        }
+      })
+        .then((response) => {
+          if (!response.ok) {
+            throw new Error(`HTTP error! status: ${response.status}`);
           }
+          return response.json();
         })
-          .then((response) => {
-            if (!response.ok) {
-              throw new Error(`HTTP error! status: ${response.status}`);
-            }
-            return response.json();
-          })
-          .then((data) => {
-            console.log("Données de l'API GoldAPI :", data); // Log des données retournées par l'API
-            setGoldRate(data.price); // Extraction du taux de l'or
-            setIsLoading(false); // Arrête le chargement
-          })
-          .catch((error) => {
-            console.error("Error fetching gold rate:", error);
-            setError("Impossible de récupérer les données du taux de l'or.");
-            setGoldRate(null);
-            setIsLoading(false); // Arrête le chargement
-          });
-      }
-    }, [showModal]);
-  
+        .then((data) => {
+          setGoldRate(data.price); // Extraction du taux de l'or
+          setIsLoading(false); // Arrête le chargement
+        })
+        .catch((error) => {
+          console.error("Error fetching gold rate:", error);
+          setError("Impossible de récupérer les données du taux de l'or.");
+          setGoldRate(null);
+          setIsLoading(false); // Arrête le chargement
+        });
+    }
+  }, [showModal]);
+
 
   return (
     <div className="min-h-screen">
@@ -69,9 +68,9 @@ const HomePage: FunctionComponent = () => {
       {/* Modal for Gold Rate */}
       {showModal && (
         <div className="gold-rate-section">
-          <div className="gold-rate-content">
-            <span className="close" onClick={() => setShowModal(false)}>
-              &times;
+          <div className="gold-rate-content" >
+            <span className="closeRating" onClick={() => setShowModal(false)}>
+              x
             </span>
             <h2>Prévision du taux de l'or</h2>
             {isLoading ? (
@@ -175,16 +174,16 @@ const HomePage: FunctionComponent = () => {
 
       {/* profil section */}
       <span><h2>À propos de Moi </h2></span>
-      {/* <div className="container" id="profil" >
-      <div className="row">
-      <div className="col-md-6 col-sm-12">
-          <div className="biography">
-            <h1>Mr Mohamed Fanta Kanté</h1>
-            <p>Bonjour et bienvenue sur mon site de portfolio ! <br />
-            Je suis un entrepreneur passionné avec une expertise pointue dans l'achat et la vente de l'or. <br /> 
-            Fort de plusieurs années d'expérience dans ce domaine, j'ai développé une compréhension approfondie des marchés financiers et des métaux précieux.
-            </p>
-            <h3><b>Mes Compétences</b></h3>
+      <section className="process-section py-3" id="biography">
+        <div className="container">
+          <div className="row">
+            <div className="col-md-7 col-sm-12">
+              <h1>Mr Mohamed Fanta Kanté</h1>
+              <p>Bonjour et bienvenue sur mon site de portfolio ! <br />
+                Je suis un entrepreneur passionné avec une expertise pointue dans l'achat et la vente de l'or. <br />
+                Fort de plusieurs années d'expérience dans ce domaine, j'ai développé une compréhension approfondie des marchés financiers et des métaux précieux.
+              </p>
+              <h3><b>Mes Compétences</b></h3>
               <ul>
                 <li><b>Achat d'Or</b> : Expertise dans l'identification, l'évaluation et l'acquisition de l'or sous diverses formes (bijoux, lingots, pièces).</li>
                 <li><b>Vente d'Or</b> : Stratégies de vente efficaces pour maximiser les profits tout en garantissant la satisfaction du client.</li>
@@ -193,40 +192,12 @@ const HomePage: FunctionComponent = () => {
               </ul>
               <h3><b>Mes Objectifs</b></h3>
               <p>
-              Mon objectif est de fournir des services de qualité supérieure à mes clients et de devenir une référence dans le secteur de l'or. Que vous cherchiez à acheter ou vendre de l'or, je suis ici pour vous offrir des conseils d'expert et des solutions adaptées à vos besoins.
+                Mon objectif est de fournir des services de qualité supérieure à mes clients et de devenir une référence dans le secteur de l'or. Que vous cherchiez à acheter ou vendre de l'or, je suis ici pour vous offrir des conseils d'expert et des solutions adaptées à vos besoins.
               </p>
-          </div>
-          </div>
-          <div className="col-md-6 col-sm-12">
-          <img src={profil} id="profil" alt="profil"/>
-
-          </div>
-        </div>
-      </div> */}
-
-      <section className="process-section" id="biography">
- 
-        <div className="container" id="biog">
-          <div className="biography">
-            <h1>Mr Mohamed Fanta Kanté</h1>
-            <p>Bonjour et bienvenue sur mon site de portfolio ! <br />
-            Je suis un entrepreneur passionné avec une expertise pointue dans l'achat et la vente de l'or. <br /> 
-            Fort de plusieurs années d'expérience dans ce domaine, j'ai développé une compréhension approfondie des marchés financiers et des métaux précieux.
-            </p>
-            <h3><b>Mes Compétences</b></h3>
-              <ul>
-                <li><b>Achat d'Or</b> : Expertise dans l'identification, l'évaluation et l'acquisition de l'or sous diverses formes (bijoux, lingots, pièces).</li>
-                <li><b>Vente d'Or</b> : Stratégies de vente efficaces pour maximiser les profits tout en garantissant la satisfaction du client.</li>
-                <li><b>Analyse de Marché</b> : Capacité à analyser les tendances du marché et à prévoir les fluctuations des prix des métaux précieux.</li>
-                <li><b>Négociation</b> : Talents en négociation pour assurer des transactions avantageuses et sécurisées pour toutes les parties impliquées.</li>
-              </ul>
-              <h3><b>Mes Objectifs</b></h3>
-              <p>
-              Mon objectif est de fournir des services de qualité supérieure à mes clients et de devenir une référence dans le secteur de l'or. Que vous cherchiez à acheter ou vendre de l'or, je suis ici pour vous offrir des conseils d'expert et des solutions adaptées à vos besoins.
-              </p>
-          </div>
-          <div>
-            <img src={profil} id="profil" alt="profil"/>
+            </div>
+            <div className="col-md-5 col-sm-12">
+              <img className="profilImage" src={profil} id="" alt="profil" />
+            </div>
           </div>
         </div>
       </section>
@@ -236,19 +207,19 @@ const HomePage: FunctionComponent = () => {
         <div className="container">
           <div className="contact-grid">
             <div>
-              <h2>Contactez-nous</h2>
+              <h3 className="mb-4">Contactez-nous</h3>
               <div className="contact-info">
                 <div className="contact-item">
                   <FiPhone className="icon" />
-                  <p>(+224) 662-15-77-46</p>
+                  <span>(+224) 662-15-77-46</span>
                 </div>
                 <div className="contact-item">
                   <FiMapPin className="icon" />
-                  <p>Madina Marché</p>
+                  <span>Madina Marché</span>
                 </div>
                 <div className="contact-item">
                   <FiClock className="icon" />
-                  <p>Lundi - Samedi: 9h30 - 18h30</p>
+                  <span>Lundi - Samedi: 9h30 - 18h30</span>
                 </div>
               </div>
             </div>
